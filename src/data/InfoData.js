@@ -13,7 +13,7 @@ export const InfoData = {
   delay: 100,
 };
 
-export const InfoDataTwos = {
+export const InfoDataTwo = {
   heading: "Get rid of that blinding!",
   paragraphOne:
     "Lorem ipsum dolor sit amet consecdent voluptatem reprehenderit error earum impedit, ratione rerum dignissimos sit?",
