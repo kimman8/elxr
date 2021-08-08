@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled, { css } from "styled-components/macro";
 import { Button } from "./Button";
 import { HiOutlineArrowRight } from "react-icons/hi";
@@ -129,13 +129,33 @@ const Hero = ({ slides }) => {
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
     console.log(current);
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
   };
 
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
     console.log(current);
   };
+  // useEffect(() => {
+  //   const nextSlide = () => {
+  //     setCurrent((current) => (current === length - 1 ? 0 : current + 1));
+  //   };
+  //   timeout.current = setTimeout(nextSlide, 3000);
+  //   return function () {
+  //     if (timeout.current) {
+  //       clearTimeout(timeout.current);
+  //     }
+  //   };
+  // }, [current, length]);
 
+  if (!Array.isArray(slides) || slides.length <= 0) {
+    return null;
+  }
   return (
     <HeroSection>
       <HeroWrapper>

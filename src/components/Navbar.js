@@ -68,7 +68,7 @@ const NavButton = styled.div`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   return (
     <Nav>
       <Logo to="/">VIBROFLOW</Logo>
@@ -79,7 +79,7 @@ const Navbar = () => {
           </NavMenuLinks>
         ))}
       </NavMenu>
-      <MenuBars>
+      <MenuBars onClick={toggle}>
         <GrTextAlignRight />
       </MenuBars>
       <NavButton>
